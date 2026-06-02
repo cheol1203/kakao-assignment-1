@@ -22,7 +22,7 @@ body {
 
 .todo-card {
   width: 100%;
-  max-width: 560px;
+  max-width: 680px;
   background: #ffffff;
   border-radius: 24px;
   padding: 32px;
@@ -52,26 +52,26 @@ body {
   line-height: 1.5;
 }
 
-/* 선택된 날짜와 이전/다음 버튼 영역 */
-.date-view-area {
+/* 이전 주 / 다음 주 버튼과 현재 주차 표시 영역 */
+.week-navigation-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   padding: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   border-radius: 16px;
   background: #f4f0ff;
 }
 
-.selected-date-text {
+.selected-week-text {
   color: #672be0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   text-align: center;
 }
 
-.date-button {
+.week-button {
   border: none;
   border-radius: 12px;
   padding: 10px 14px;
@@ -82,9 +82,87 @@ body {
   cursor: pointer;
 }
 
-.date-button:hover {
+.week-button:hover {
   background: #672be0;
   color: #ffffff;
+}
+
+/* 월요일부터 일요일까지 날짜가 나열되는 영역 */
+.week-date-list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* 날짜 하나를 나타내는 버튼 */
+.week-date-button {
+  min-height: 88px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background: #fbfaff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.week-date-button:hover {
+  border-color: #672be0;
+  background: #f4f0ff;
+}
+
+/* 현재 선택된 날짜 */
+.week-date-button.selected {
+  border-color: #672be0;
+  background: #672be0;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(103, 43, 224, 0.2);
+}
+
+/* 오늘 날짜 */
+.week-date-button.today {
+  border-color: #672be0;
+}
+
+/* 오늘이면서 선택된 날짜 */
+.week-date-button.today.selected {
+  background: #672be0;
+  color: #ffffff;
+}
+
+/* 요일 텍스트 */
+.week-day-name {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 날짜 숫자 */
+.week-day-number {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* 날짜별 Todo 개수 */
+.week-todo-count {
+  display: block;
+  font-size: 12px;
+  color: #777;
+}
+
+.week-date-button.selected .week-todo-count {
+  color: #ffffff;
+}
+
+/* 현재 선택된 날짜 텍스트 */
+.selected-date-text {
+  margin-bottom: 18px;
+  color: #672be0;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .todo-input-area {
@@ -234,9 +312,44 @@ body {
   text-align: center;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .todo-card {
     padding: 24px;
+  }
+
+  .week-date-list {
+    gap: 6px;
+  }
+
+  .week-date-button {
+    min-height: 76px;
+    border-radius: 12px;
+  }
+
+  .week-day-name {
+    font-size: 12px;
+  }
+
+  .week-day-number {
+    font-size: 18px;
+  }
+
+  .week-todo-count {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-container {
+    padding: 40px 14px;
+  }
+
+  .week-navigation-area {
+    flex-direction: column;
+  }
+
+  .week-button {
+    width: 100%;
   }
 
   .todo-input-area {

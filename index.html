@@ -11,18 +11,24 @@
     <section class="todo-card">
       <div class="todo-header">
         <p class="todo-label">Vanilla JS Todo</p>
-        <h1>오늘 할 일</h1>
+        <h1>주간 할 일</h1>
         <p class="todo-description">
           날짜별로 해야 할 일을 관리해보세요.
         </p>
       </div>
 
-      <!-- 일간 뷰 날짜 이동 영역 -->
-      <div class="date-view-area">
-        <button id="previousDateButton" class="date-button">이전</button>
-        <p id="selectedDateText" class="selected-date-text"></p>
-        <button id="nextDateButton" class="date-button">다음</button>
+      <!-- 주간 뷰 이동 영역 -->
+      <div class="week-navigation-area">
+        <button id="previousWeekButton" class="week-button">이전 주</button>
+        <p id="selectedWeekText" class="selected-week-text"></p>
+        <button id="nextWeekButton" class="week-button">다음 주</button>
       </div>
+
+      <!-- 이번 주 월요일부터 일요일까지 표시되는 영역 -->
+      <div id="weekDateList" class="week-date-list"></div>
+
+      <!-- 현재 선택된 날짜 표시 영역 -->
+      <p id="selectedDateText" class="selected-date-text"></p>
 
       <div class="todo-input-area">
         <input
@@ -34,17 +40,14 @@
         <button id="addTodoButton" class="add-button">추가</button>
       </div>
 
-      <!-- 안내 메시지 영역 -->
       <p id="messageText" class="message-text"></p>
 
-      <!-- 상태별 필터 탭 -->
       <div class="filter-tab-area">
         <button class="filter-tab active" data-filter="all">전체</button>
         <button class="filter-tab" data-filter="active">진행 중</button>
         <button class="filter-tab" data-filter="completed">완료</button>
       </div>
 
-      <!-- Todo 목록 영역 -->
       <ul id="todoList" class="todo-list"></ul>
     </section>
   </main>
